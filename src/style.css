@@ -1,0 +1,177 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.2em;
+  line-height: 1.1;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #f7df1eaa);
+}
+
+.card {
+  padding: 2em;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.05));
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.5);
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* SELECT / OPTION fixes */
+select {
+  background: rgba(255,255,255,0.02);
+  color: inherit; /* użyj bieżącego koloru tekstu */
+  border-radius: 6px;
+  padding: 0.5em;
+  border: 1px solid rgba(255,255,255,0.04);
+  cursor: pointer;
+  min-height: 2.4em;
+  /* usuń natywny wygląd, by lepiej kontrolować kolor */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Wiele przeglądarek pozwala stylować option — ustaw czytelne kolory dla obu trybów */
+select option {
+  /* wartości domyślne nadpisane — w light mode będą ciemne, w dark mode jasne */
+  color: #111111;
+  background: #ffffff;
+}
+
+/* Focus/active */
+select:focus,
+select:active {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(100,108,255,0.12);
+  border-color: #646cff;
+}
+
+/* light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+  .card {
+    background: linear-gradient(180deg,#fff,#f7f8fb);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  }
+
+  /* opcje w trybie jasnym — ciemny tekst na białym tle */
+  select {
+    background: #ffffff;
+    color: #213547;
+    border: 1px solid rgba(33,53,71,0.08);
+  }
+  select option {
+    color: #213547;
+    background: #ffffff;
+  }
+}
+
+/* dark mode specifics */
+@media (prefers-color-scheme: dark) {
+  /* opcje w trybie ciemnym — jasny tekst na ciemnym tle */
+  select {
+    background: rgba(255,255,255,0.02);
+    color: rgba(255,255,255,0.90);
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+  select option {
+    color: rgba(255,255,255,0.95);
+    background: #1a1a1a;
+  }
+}
+
+/* dodatkowa wskazówka: jeśli chcesz ikonę strzałki, dodaj pseudo-element */
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.select-wrapper::after {
+  content: "▾";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: rgba(255,255,255,0.6);
+}
+
+/* unikać zbyt cienkich czcionek w selectach na mobile */
+select { font-weight: 500; }
